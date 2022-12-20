@@ -1,0 +1,23 @@
+:root{
+  background-color: violet;
+}
+
+#root{
+  padding: 10px;
+  /* min-height: 100vh; */
+  background-color: yellowgreen;
+}
+
+body{
+  /* margin: 0; */
+  padding: 10px;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: slateblue;
+}
+
+.App{
+  background-color: tomato;
+}
+
