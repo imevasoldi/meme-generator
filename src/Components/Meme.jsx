@@ -1,10 +1,16 @@
+import { useState } from "react"
 import memesData from "../memesData"
 
 function Meme(){
+    const [memeImage, setMemeImage] = useState("")
     const data = memesData
-    // console.log(data.data.memes)
-    const randomImageIndex = Math.floor(Math.random() * 99)
-    console.log(randomImageIndex)
+    
+    const getMemeImage = () => {
+        const randomImageIndex = Math.floor(Math.random() * 99)
+        console.log(randomImageIndex)
+        setMemeImage(memesData.data.memes[randomImageIndex].url)
+    }
+
     return (
         <div>
         <div className="form">
@@ -12,9 +18,10 @@ function Meme(){
                 <input placeholder="Top text"/>
                 <input placeholder="Bottom text"/>
             </div>
-            <button>Get a new meme image 🖼</button>
+            <button onClick={getMemeImage}>Get a new meme image 🖼</button>
         </div>
-        <img className="meme--image" src={memesData.data.memes[randomImageIndex].url}/>
+        {/* <img className="meme--image" src={memesData.data.memes[randomImageIndex].url}/> */}
+        <img className="meme--image" src={memeImage}/>
         </div>
         )
         
