@@ -20,13 +20,14 @@ import memesData from "../memesData"
 function Meme(){
     const [meme, setMeme] = useState(
             {
-                topText: "one",
-                bottomText: "two",
+                topText: "",
+                bottomText: "",
                 randomImage: "http://i.imgflip.com/1bij.jpg",
             }
         )
     const [allMemeImages, setAllMemesImages] = useState(memesData)
     
+    console.log(meme)
 
     const getMemeImage = () => {
         const randomImageIndex = Math.floor(Math.random() * 99)
@@ -41,7 +42,12 @@ function Meme(){
     }
     
     function handleChange(event){
-        console.log("interacting")
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme,
+                [event.target.name]: event.target.value
+            }
+        })
     }
 
     return (
@@ -50,14 +56,14 @@ function Meme(){
             <div className="inputs--">
                 <input 
                     name="topText"
-                    // vallue={}
+                    vallue={meme.topText}
                     onChange={handleChange}
                     placeholder="Top text"
 
                 />
                 <input 
                     name="bottomText"
-                    // vallue={}
+                    vallue={meme.bottomText}
                     onChange={handleChange}
                     placeholder="Bottom text"
 
