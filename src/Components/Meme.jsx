@@ -32,11 +32,10 @@ function Meme(){
     const getMemeImage = () => {
         const randomImageIndex = Math.floor(Math.random() * 99)
         console.log(randomImageIndex)
-        // memesData.data.memes[randomImageIndex].url)
         setMeme(prevMeme => {
             return {
                 ...prevMeme, 
-                randomImage: allMemes.data.memes[randomImageIndex].url
+                randomImage: allMemes[randomImageIndex].url
             }
         })
     }
@@ -44,7 +43,7 @@ function Meme(){
     useEffect(()=> {
         fetch("https://api.imgflip.com/get_memes")
         .then(res => res.json())
-        .then(data => setAllMemes(data))
+        .then(data => setAllMemes(data.data.memes))
         // .then(data => console.log(data))
     },[])
     
