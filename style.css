@@ -1,12 +1,9 @@
 :root{
   font-family: 'Karla';
   font-style: normal;
-  /* background-color: violet; */
 }
 
 body{
-  /* margin: 0; */
-  /* padding: 10px; */
   min-height: 100vh;
   display: grid;
   place-content: center;
@@ -16,7 +13,6 @@ body{
 #root{
   display: flex;
   padding: 10px;
-  /* background-color: rgb(3, 118, 240); */
 }
 
 
@@ -93,16 +89,12 @@ border: none;
 cursor: pointer;
 }
 
-/* .form>img{
-  background-color: rgb(255, 94, 0);
-} */
 
 .meme--image{
   width: 100%;
 }
 
 .meme--box {
-  /* background-color: rgb(0, 213, 255); */
   position: relative;
 }
 

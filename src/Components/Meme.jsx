@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import memesData from "../memesData"
+import { useQuery, gql } from "@apollo/client";
+
 
     /**
      * Challenge: 
@@ -27,7 +29,29 @@ function Meme(){
         )
     const [allMemes, setAllMemes] = useState([])
     
-    console.log(meme)
+    const USERS = gql`
+query {
+    users {
+      _id
+      email
+      firstName
+      lastName
+    }
+  }
+`
+//     const USERS = gql`
+// query {
+//     advisors {
+//         contactPhoneNumber
+//       }
+//   }
+// `
+
+
+    const { loading, error, data } = useQuery(USERS)
+    console.log(data);
+
+    // console.log(meme)
 
     const getMemeImage = () => {
         const randomImageIndex = Math.floor(Math.random() * 99)
@@ -39,12 +63,33 @@ function Meme(){
             }
         })
     }
+    
+    
 
     useEffect(()=> {
-        fetch("https://api.imgflip.com/get_memes")
-        .then(res => res.json())
-        .then(data => setAllMemes(data.data.memes))
+        // fetch("https://api.imgflip.com/get_memes")
+        // fetch("https://hallowed-front-sandbox.up.railway.app/")
+        // fetch("https://hallowed-front-sandbox.up.railway.app/", {
+        //     method: 'GET',
+        //     mode: 'no-cors',
+        // })
+        // .then(res => res.json())
+        // .then(data => setAllMemes(data.data.memes))
+        // const response = await fetch(`https://hallowed-front-sandbox.up.railway.app/`,{
+        //     fetch(`https://hallowed-front-sandbox.up.railway.app/`,{
+        //         method: 'POST',
+        //         // body: USERS,
+        //         // body: JSON.stringify({ USERS })
+        //         // body: JSON.stringify({ USERS })
+        //         body: USERS,
+        //     })
+        // .then(res => res.json())
         // .then(data => console.log(data))
+       
+        // .catch(error => {
+        //     console.error('Error:', error);
+        //     throw new Error('Failed to fetch user data from microservice jajajaj');
+        //   })
     },[])
     
     function handleChange(event){
