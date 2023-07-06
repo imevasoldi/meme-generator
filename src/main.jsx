@@ -5,8 +5,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
   // uri: 'http://localhost:4000',
-  uri: 'https://hallowed-front-sandbox.up.railway.app/',
-  // uri: 'https://main--nwm-microservices.apollographos.net/graphql/',
+  // uri: 'https://hallowed-front-sandbox.up.railway.app/',
+  uri: 'https://main--nwm-microservices.apollographos.net/graphql/',
   cache: new InMemoryCache(),
 });
 
