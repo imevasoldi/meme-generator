@@ -29,17 +29,17 @@ function Meme(){
         )
     const [allMemes, setAllMemes] = useState([])
     
-    const USERS = gql`
-query {
-    users {
-      _id
-      email
-      firstName
-      lastName
-    }
-  }
-`
 //     const USERS = gql`
+// query {
+//     users {
+//       _id
+//       email
+//       firstName
+//       lastName
+//     }
+//   }
+// `
+    // const USERS = gql`
 // query {
 //     advisors {
 //         contactPhoneNumber
@@ -48,8 +48,8 @@ query {
 // `
 
 
-    const { loading, error, data } = useQuery(USERS)
-    console.log(data);
+    // const { loading, error, data } = useQuery(USERS)
+    // console.log(data);
 
     // console.log(meme)
 
@@ -90,6 +90,11 @@ query {
         //     console.error('Error:', error);
         //     throw new Error('Failed to fetch user data from microservice jajajaj');
         //   })
+
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+        // .then(data => console.log(data))
     },[])
     
     function handleChange(event){
